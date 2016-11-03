@@ -27,11 +27,17 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position){
-            case 0 :
+        switch (position) {
+            case 0:
                 return "Contacts";
             default:
                 return "DeletedContacts";
         }
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        RecyclerFragment.updateAdapter();
+        return super.getItemPosition(object);
     }
 }

@@ -44,7 +44,7 @@ public class MyDialogFragment extends DialogFragment implements DialogInterface.
             case Dialog.BUTTON_POSITIVE:
                 List<Contact> contactList = ContactsProvider.getInstance(getActivity()).getContacts();
                 List<Contact> deletedContactList1 = ContactsProvider.getInstance(getActivity()).getDeletedContacts();
-                contactList.remove(equals(contact));
+                contactList.remove(contact);
                 deletedContactList1.add(contact);
                 ContactsProvider.getInstance(getActivity()).saveContacts(contactList);
                 ContactsProvider.getInstance(getActivity()).saveDeletedContacts(deletedContactList1);

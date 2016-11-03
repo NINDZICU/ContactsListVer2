@@ -20,6 +20,7 @@ public class RecyclerFragment extends Fragment{
     RecyclerView rv;
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
     int pageNumber;
+    static ContactsRecyclerAdapter adapter;
 
    public static RecyclerFragment newInstance(int page) {
         RecyclerFragment pageFragment = new RecyclerFragment();
@@ -41,9 +42,12 @@ public class RecyclerFragment extends Fragment{
         View view = inflater.inflate(R.layout.contacts_recycler, container, false);
         rv = (RecyclerView) view.findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
-        ContactsRecyclerAdapter adapter = new ContactsRecyclerAdapter(pageNumber, getActivity());
+        adapter = new ContactsRecyclerAdapter(pageNumber, getActivity());
         rv.setAdapter(adapter);
 
         return view;
+    }
+    public static void updateAdapter(){
+        adapter.notifyDataSetChanged();
     }
 }

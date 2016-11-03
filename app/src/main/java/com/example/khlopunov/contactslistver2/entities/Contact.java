@@ -23,13 +23,4 @@ public class Contact implements Serializable {
     public String getNumber() {
         return number;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Contact) {
-            return ((Contact) obj).name.equals(name) &&
-                    ((Contact) obj).number == number;
-        }
-        return false;
-    }
 }
