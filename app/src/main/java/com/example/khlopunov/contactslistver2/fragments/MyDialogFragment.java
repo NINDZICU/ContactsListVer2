@@ -42,9 +42,15 @@ public class MyDialogFragment extends DialogFragment implements DialogInterface.
     public void onClick(DialogInterface dialog, int which) {
         switch (which){
             case Dialog.BUTTON_POSITIVE:
+                String number = contact.getNumber();
                 List<Contact> contactList = ContactsProvider.getInstance(getActivity()).getContacts();
                 List<Contact> deletedContactList1 = ContactsProvider.getInstance(getActivity()).getDeletedContacts();
-                contactList.remove(contact);
+                for (int i = 0; i < contactList.size(); i++) {
+                    if(contactList.get(i).getNumber().equals(number)){
+                        contactList.remove(i);
+                        break;
+                    }
+                }
                 deletedContactList1.add(contact);
                 ContactsProvider.getInstance(getActivity()).saveContacts(contactList);
                 ContactsProvider.getInstance(getActivity()).saveDeletedContacts(deletedContactList1);

@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.khlopunov.contactslistver2.Update;
 import com.example.khlopunov.contactslistver2.fragments.RecyclerFragment;
 
 /**
@@ -37,7 +38,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getItemPosition(Object object) {
-        RecyclerFragment.updateAdapter();
+        ((Update)object).updateAdapter();
         return super.getItemPosition(object);
     }
 }

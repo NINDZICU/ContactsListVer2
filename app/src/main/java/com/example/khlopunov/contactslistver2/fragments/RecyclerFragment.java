@@ -10,17 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.khlopunov.contactslistver2.R;
+import com.example.khlopunov.contactslistver2.Update;
 import com.example.khlopunov.contactslistver2.adapters.ContactsRecyclerAdapter;
 
 /**
  * Created by Admin on 30.10.2016.
  */
 
-public class RecyclerFragment extends Fragment{
+public class RecyclerFragment extends Fragment implements Update{
     RecyclerView rv;
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
     int pageNumber;
-    static ContactsRecyclerAdapter adapter;
+    ContactsRecyclerAdapter adapter;
 
    public static RecyclerFragment newInstance(int page) {
         RecyclerFragment pageFragment = new RecyclerFragment();
@@ -47,7 +48,9 @@ public class RecyclerFragment extends Fragment{
 
         return view;
     }
-    public static void updateAdapter(){
+
+    @Override
+    public void updateAdapter() {
         adapter.notifyDataSetChanged();
     }
 }
